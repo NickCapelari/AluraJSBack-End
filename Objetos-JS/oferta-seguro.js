@@ -15,19 +15,18 @@ const cliente = {
         parentesco: "Filha",
         dataNasc: '10/01/1995'
     }],
-    depositar:function(valor){
-        this.saldo +=valor
+    depositar: function (valor) {
+        this.saldo += valor
     }
 }
 
-let relatorio = "";
-
-for(let info in cliente){
-    if(typeof cliente[info] === 'object' || typeof cliente[info]==='function'){
-        continue
-    }else{relatorio += `
-    ${info} : ${cliente[info]}
-    `} 
+function oferecerSeguro(obj) {
+    const propsClientes = Object.keys(obj);
+    if (propsClientes.includes("dependentes")) {
+        console.log(`Oferta de seguro de vida para ${obj.nome}`)
+    }
 }
+console.log(Object.values(cliente))
+console.log(Object.entries(cliente))
 
-console.log(relatorio)
+oferecerSeguro(cliente)
